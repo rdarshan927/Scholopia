@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1045828870076",
+    "project_id": "scholopia",
+    "storage_bucket": "scholopia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045828870076:android:dd0a75ff5687ce2fe055b9",
+        "android_client_info": {
+          "package_name": "com.rd927.scholopia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsdeBdGjN4fTX7ULxS5wrIQZE79lscOSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
