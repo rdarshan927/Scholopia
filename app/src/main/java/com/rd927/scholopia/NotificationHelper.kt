@@ -37,10 +37,11 @@ class NotificationHelper(private val context: Context) {
             putExtra("message", message)
         }
 
-        // Create the PendingIntent with FLAG_IMMUTABLE for Android 12+ compatibility
+        // Use a unique ID for the PendingIntent
+        val requestCode = System.currentTimeMillis().toInt()
         val pendingIntent = PendingIntent.getBroadcast(
             context,
-            0,
+            requestCode,
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -58,8 +59,8 @@ class NotificationHelper(private val context: Context) {
         Log.d("NotificationHelper", "Notification scheduled for $triggerTime")
     }
 
-
-
-
-
+    fun cancelAllNotifications() {
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancelAll()
+    }
 }

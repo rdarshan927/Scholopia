@@ -67,7 +67,6 @@ class CreateSchedule : AppCompatActivity() {
 
     // Save the form data to the Room database
     private fun saveScheduleToDatabase(title: String, priority: String, category: String, recurrence: String, notes: String) {
-        // Replace 'scheduleDao' with the actual DAO instance
         val scheduleDao = AppDatabase.getDatabase(this).scheduleDao()
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -82,6 +81,12 @@ class CreateSchedule : AppCompatActivity() {
             )
             scheduleDao.insertSchedule(schedule)
 
+            // Schedule a notification for the selected date and time
+            val notificationHelper = NotificationHelper(this@CreateSchedule)
+//            notificationHelper.createNotificationChannel()
+            val triggerTime = getTriggerTime(selectedDateTime)
+            notificationHelper.scheduleNotification(title, notes, triggerTime)
+
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@CreateSchedule, "Schedule saved successfully", Toast.LENGTH_SHORT).show()
                 finish() // Close the activity after saving
@@ -89,6 +94,19 @@ class CreateSchedule : AppCompatActivity() {
         }
     }
 
+    // Helper function to convert the selected date and time to a trigger time
+    private fun getTriggerTime(selectedDateTime: String): Long {
+        val calendar = Calendar.getInstance()
+        val parts = selectedDateTime.split(" ")
+        val dateParts = parts[0].split("/")
+        val timeParts = parts[1].split(":")
+        calendar.set(Calendar.DAY_OF_MONTH, dateParts[0].toInt())
+        calendar.set(Calendar.MONTH, dateParts[1].toInt() - 1) // Months are 0-based
+        calendar.set(Calendar.YEAR, dateParts[2].toInt())
+        calendar.set(Calendar.HOUR_OF_DAY, timeParts[0].toInt())
+        calendar.set(Calendar.MINUTE, timeParts[1].toInt())
+        return calendar.timeInMillis
+    }
 
     private fun getCurrentUserId(): Int {
         // Retrieve the logged-in user ID from SharedPreferences

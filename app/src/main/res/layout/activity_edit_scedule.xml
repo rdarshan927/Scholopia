@@ -8,42 +8,50 @@
     <EditText
         android:id="@+id/editTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
         android:hint="Title" />
 
     <EditText
         android:id="@+id/editPriority"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
         android:hint="Priority" />
 
     <EditText
         android:id="@+id/editCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
         android:hint="Category" />
 
     <EditText
         android:id="@+id/editRecurrence"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
         android:hint="Recurrence" />
 
     <EditText
         android:id="@+id/editNotes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
         android:hint="Notes" />
 
     <EditText
         android:id="@+id/editDateTime"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
         android:hint="Date and Time" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
         android:text="Save" />
 </LinearLayout>

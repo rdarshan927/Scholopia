@@ -62,22 +62,10 @@ class NotificationReceiver : BroadcastReceiver() {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            val intent = Intent(context, PermissionActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            context.startActivity(intent)
             return
         }
         notificationManagerCompat.notify(notificationId, notificationBuilder.build())
 
         Log.d("NotificationReceiver", "Notification displayed")
-        // Check if the notification is being displayed in the notification shade
-        val notification = notificationManagerCompat.getActiveNotifications()
-        if (notification.isNotEmpty()) {
-            Log.d("NotificationReceiver", "Notification is being displayed in the notification shade")
-        } else {
-            Log.d("NotificationReceiver", "Notification is not being displayed in the notification shade")
-        }
     }
-
-
 }

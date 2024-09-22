@@ -38,22 +38,8 @@ class MainActivity : AppCompatActivity() {
 
         // Create Notification Channel
         notificationHelper.createNotificationChannel()
-
-        // Example of scheduling a notification
-        scheduleSampleNotification()
-
-//        deleteDatabase()
     }
 
-    private fun scheduleSampleNotification() {
-        // Example data for scheduling a notification
-        val title = "Test Notification"
-        val message = "This is a test notification."
-        val triggerTime = System.currentTimeMillis() + 60000 // Schedule for 1 minute later
-
-        // Schedule the notification
-        notificationHelper.scheduleNotification(title, message, triggerTime)
-    }
 
     private fun checkAndRequestAlarmPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -65,8 +51,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun deleteDatabase() {
-        deleteDatabase("scholopia_database")
-    }
 }

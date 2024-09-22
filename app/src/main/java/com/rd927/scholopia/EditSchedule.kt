@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Calendar
 
 class EditSchedule : AppCompatActivity() {
 
@@ -83,6 +84,16 @@ class EditSchedule : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             scheduleDao.updateSchedule(updatedSchedule)
 
+            // Cancel any existing notifications
+            val notificationHelper = NotificationHelper(this@EditSchedule)
+            notificationHelper.cancelAllNotifications()
+
+            // Schedule a new notification
+            val triggerTime = getTriggerTime(editDateTime.text.toString())
+            notificationHelper.createNotificationChannel()
+            notificationHelper.scheduleNotification(updatedSchedule.title,
+                updatedSchedule.notes.toString(), triggerTime)
+
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@EditSchedule, "Schedule updated", Toast.LENGTH_SHORT).show()
                 finish() // Close the activity and return to previous screen
@@ -93,5 +104,18 @@ class EditSchedule : AppCompatActivity() {
     private fun getUserIdFromPreferences(): Int {
         val sharedPref = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         return sharedPref.getInt("user_id", 0)
+    }
+
+    private fun getTriggerTime(selectedDateTime: String): Long {
+        val calendar = Calendar.getInstance()
+        val parts = selectedDateTime.split(" ")
+        val dateParts = parts[0].split("/")
+        val timeParts = parts[1].split(":")
+        calendar.set(Calendar.DAY_OF_MONTH, dateParts[0].toInt())
+        calendar.set(Calendar.MONTH, dateParts[1].toInt() - 1) // Months are 0-based
+        calendar.set(Calendar.YEAR, dateParts[2].toInt())
+        calendar.set(Calendar.HOUR_OF_DAY, timeParts[0].toInt())
+        calendar.set(Calendar.MINUTE, timeParts[1].toInt())
+        return calendar.timeInMillis
     }
 }

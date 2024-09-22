@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import android.Manifest
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -24,20 +25,17 @@ class PermissionActivity : AppCompatActivity() {
             1
         )
     }
-
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, you can now display the notification
-                // You can start the NotificationReceiver again to display the notification
-                val intent = Intent(this, NotificationReceiver::class.java)
-                sendBroadcast(intent)
-                finish()
+                // Permission granted, handle this case
+                Toast.makeText(this, "Permission granted", Toast.LENGTH_SHORT).show()
             } else {
                 // Permission denied, handle this case
-                finish()
+                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
 }

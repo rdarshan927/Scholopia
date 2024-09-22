@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:paddingHorizontal="8dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp">
 
     <!-- Title row with expandable/collapsible icon -->
 
@@ -17,28 +19,28 @@
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
+            android:ellipsize="end"
             android:focusable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView"
-            android:ellipsize="end"
-            android:maxLines="1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="Dropdown Icon"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/logo"
+            app:srcCompat="@drawable/edit"
             app:tint="?android:attr/textColorPrimary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -58,41 +60,41 @@
         android:id="@+id/priority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:padding="4dp"
         android:text="Priority: High"
-        android:padding="4dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:padding="4dp"
         android:text="Category: Study"
-        android:padding="4dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/recurrence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:padding="4dp"
         android:text="Recurrence: Weekly"
-        android:padding="4dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:padding="4dp"
         android:text="Notes: Chapter 3 revision"
-        android:padding="4dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/dateTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:padding="4dp"
         android:text="Due Date: 20th Sept 2024, 4:00 PM"
-        android:padding="4dp" />
-    </LinearLayout>
+        android:textSize="16sp" />
+</LinearLayout>
 
 </LinearLayout>
