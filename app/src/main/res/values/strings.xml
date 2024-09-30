@@ -23,4 +23,21 @@
         <item>Custom</item>
     </string-array>
 
+    <string name="signup">Register</string>
+    <string name="signin">Login</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="cpass">Confirm Password</string>
+    <string name="name">Name</string>
+
+    <string name="title">Title</string>
+    <string name="priority">Priority</string>
+    <string name="category">Category</string>
+    <string name="recur">Reccurence</string>
+    <string name="notes">Notes</string>
+    <string name="date">Date &amp; Time</string>
+    <string name="save">Save</string>
+
+
 </resources>

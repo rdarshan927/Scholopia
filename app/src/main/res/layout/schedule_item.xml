@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/schdule_bg"
         android:padding="8dp">
 
         <TextView
@@ -25,6 +26,7 @@
             android:focusable="true"
             android:maxLines="1"
             android:padding="8dp"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,51 +52,51 @@
         android:id="@+id/details_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@color/schedule_dbg"
         android:orientation="vertical"
-        android:visibility="gone"
         android:padding="8dp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginTop="4dp">
+        android:visibility="gone">
 
-    <TextView
-        android:id="@+id/priority"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="Priority: High"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Priority: High"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="Category: Study"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Category: Study"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/recurrence"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="Recurrence: Weekly"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/recurrence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Recurrence: Weekly"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/notes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="Notes: Chapter 3 revision"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Notes: Chapter 3 revision"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/dateTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:text="Due Date: 20th Sept 2024, 4:00 PM"
-        android:textSize="16sp" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/dateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Due Date: 20th Sept 2024, 4:00 PM"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 </LinearLayout>

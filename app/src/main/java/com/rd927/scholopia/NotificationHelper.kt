@@ -38,7 +38,7 @@ class NotificationHelper(private val context: Context) {
         }
 
         // Use a unique ID for the PendingIntent
-        val requestCode = System.currentTimeMillis().toInt()
+        val requestCode = System.currentTimeMillis().toInt() - 60000
         val pendingIntent = PendingIntent.getBroadcast(
             context,
             requestCode,
